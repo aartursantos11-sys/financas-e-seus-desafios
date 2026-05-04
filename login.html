@@ -3,182 +3,282 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - FinançasPro</title>
+<title>Finanças Pro</title>
 
 <style>
 :root {
-  --bg:#0b0e11;
-  --card:#161a1e;
-  --primary:#f0b90b;
-  --text:#eaecef;
-  --sub:#b7bdc6;
+  --bg: #0b0e11;
+  --card: #161a1e;
+  --primary: #f0b90b;
+  --text: #eaecef;
+  --sub: #b7bdc6;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Segoe UI",Arial;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial;
 }
 
-body{
-background:var(--bg);
-color:var(--text);
+body {
+  background: var(--bg);
+  color: var(--text);
 }
 
-nav{
-display:flex;
-justify-content:space-between;
-padding:20px;
-border-bottom:1px solid #222;
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #0b0e11;
+  border-bottom: 1px solid #222;
 }
 
-.logo{
-color:var(--primary);
-font-weight:bold;
+.logo {
+  color: var(--primary);
+  font-weight: bold;
 }
 
-.container{
-max-width:450px;
-margin:60px auto;
-background:var(--card);
-padding:30px;
-border-radius:12px;
+.menu button {
+  background: none;
+  border: none;
+  color: var(--text);
+  margin-left: 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-h1{
-color:var(--primary);
-margin-bottom:20px;
-text-align:center;
+.menu button:hover {
+  color: var(--primary);
 }
 
-input{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-background:#0f1317;
-border:1px solid #333;
-border-radius:8px;
-color:var(--text);
+/* HERO */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1e2329, #0b0e11);
 }
 
-button{
-width:100%;
-padding:14px;
-background:var(--primary);
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
+.hero h1 { font-size: 36px; }
+.hero span { color: var(--primary); }
+.hero p { margin-top: 10px; color: var(--sub); }
+
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
 }
 
-.switch{
-margin-top:20px;
-text-align:center;
-color:var(--sub);
-cursor:pointer;
+.box {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 0 15px rgba(240,185,11,0.05);
+  transition: 0.3s;
 }
 
-.hidden{
-display:none;
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(240,185,11,0.2);
+}
+
+.box h3 { color: var(--primary); }
+
+/* CARDS */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover { transform: scale(1.03); }
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.card-content { padding: 15px; }
+.card h2 { color: var(--primary); }
+
+/* LOGIN MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: var(--card);
+  width: 400px;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.modal-box h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #0b0e11;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 8px;
+}
+
+.modal-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: var(--primary);
+  color: black;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--sub);
 }
 </style>
 </head>
+
 <body>
 
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h2>Login</h2>
+
+    <input type="text" placeholder="Usuário ou E-mail">
+    <input type="password" placeholder="Senha">
+
+    <button onclick="login()">Entrar</button>
+  </div>
+</div>
+
 <nav>
-<div class="logo">FinançasPro</div>
+  <div class="logo">FinançasPro</div>
+
+  <div class="menu">
+    <button onclick="go('index.html')">Home</button>
+    <button onclick="go('dicas.html')">Dicas</button>
+    <button onclick="go('investimentos.html')">Investimentos</button>
+    <button onclick="go('caminhos.html')">Caminhos</button>
+    <button onclick="openLogin()">Login</button>
+  </div>
 </nav>
 
+<section class="hero">
+  <h1>Controle total do seu <span>dinheiro</span></h1>
+  <p>Plataforma moderna para evolução financeira</p>
+</section>
+
+<section class="dashboard">
+  <div class="box">
+    <h3>R$ 0,00</h3>
+    <p>Saldo atual</p>
+  </div>
+  <div class="box">
+    <h3>R$ 0,00</h3>
+    <p>Investimentos</p>
+  </div>
+  <div class="box">
+    <h3>0%</h3>
+    <p>Rentabilidade</p>
+  </div>
+</section>
+
 <div class="container">
+  <div class="grid">
 
-<!-- LOGIN -->
-<div id="loginBox">
-<h1>Entrar</h1>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
+      <div class="card-content">
+        <h2>Controle</h2>
+        <p>Gestão completa das suas finanças.</p>
+      </div>
+    </div>
 
-<input type="text" id="loginUser" placeholder="Usuário ou E-mail">
-<input type="password" id="loginPass" placeholder="Senha">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e">
+      <div class="card-content">
+        <h2>Segurança</h2>
+        <p>Proteja seu patrimônio com estratégia.</p>
+      </div>
+    </div>
 
-<button onclick="login()">Entrar</button>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3">
+      <div class="card-content">
+        <h2>Investimentos</h2>
+        <p>Crescimento consistente no longo prazo.</p>
+      </div>
+    </div>
 
-<div class="switch" onclick="showRegister()">
-Não possui conta? Criar agora
-</div>
-</div>
-
-<!-- CADASTRO -->
-<div id="registerBox" class="hidden">
-<h1>Criar Conta</h1>
-
-<input type="email" id="regEmail" placeholder="E-mail">
-<input type="password" id="regPass" placeholder="Crie uma senha">
-<input type="date" id="regBirth">
-<input type="text" id="regName" placeholder="Como deseja ser chamado(a)?">
-
-<button onclick="register()">Cadastrar</button>
-
-<div class="switch" onclick="showLogin()">
-Já possui conta? Entrar
-</div>
+  </div>
 </div>
 
-</div>
+<footer>
+  © 2026 FinançasPro — Plataforma Educacional
+</footer>
 
 <script>
+let isLoggedIn = false;
 
-function showRegister(){
-document.getElementById("loginBox").classList.add("hidden");
-document.getElementById("registerBox").classList.remove("hidden");
+function go(page) {
+  if (page === 'dicas.html' || page === 'investimentos.html' || page === 'caminhos.html') {
+    if (!isLoggedIn) {
+      openLogin();
+      return;
+    }
+  }
+  window.location.href = page;
 }
 
-function showLogin(){
-document.getElementById("registerBox").classList.add("hidden");
-document.getElementById("loginBox").classList.remove("hidden");
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
 }
 
-function register(){
-const email = document.getElementById("regEmail").value;
-const pass = document.getElementById("regPass").value;
-const birth = document.getElementById("regBirth").value;
-const name = document.getElementById("regName").value;
-
-if(!email || !pass || !birth || !name){
-alert("Preencha todos os campos.");
-return;
+function login() {
+  isLoggedIn = true;
+  document.getElementById("loginModal").style.display = "none";
 }
-
-const user = {
-email,
-pass,
-birth,
-name
-};
-
-localStorage.setItem("financasUser", JSON.stringify(user));
-
-alert("Conta criada com sucesso!");
-showLogin();
-}
-
-function login(){
-const userInput = document.getElementById("loginUser").value;
-const passInput = document.getElementById("loginPass").value;
-
-const user = JSON.parse(localStorage.getItem("financasUser"));
-
-if(!user){
-alert("Nenhuma conta cadastrada.");
-return;
-}
-
-if((user.email === userInput || user.name === userInput) && user.pass === passInput){
-localStorage.setItem("logged", "true");
-window.location.href = "index.html";
-}else{
-alert("Dados incorretos.");
-}
-}
-
 </script>
 
 </body>
