@@ -1,119 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finanças e Seus Desafios</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finanças Pro</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    header {
-      background-color: #0a3d62;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+body {
+  background: #f4f6f9;
+}
 
-    nav {
-      background-color: #1e5f8a;
-      padding: 10px;
-      text-align: center;
-    }
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #0a3d62, #1e5f8a);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-    nav button {
-      background: none;
-      border: none;
-      color: white;
-      margin: 0 10px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 15px;
-    }
+header h1 {
+  font-size: 32px;
+}
 
-    nav button:hover {
-      text-decoration: underline;
-    }
+header p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
 
-    .container {
-      padding: 20px;
-      margin-bottom: 60px;
-    }
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    .card {
-      background: white;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
+nav button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
 
-    footer {
-      background-color: #0a3d62;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-  </style>
+nav button:hover {
+  color: #1e5f8a;
+}
+
+/* HERO IMAGE */
+.hero {
+  width: 100%;
+  height: 250px;
+  background: url("https://images.unsplash.com/photo-1565514020179-026b92b2d16b") center/cover;
+}
+
+/* CONTAINER */
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* CARD IMAGE */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* CARD CONTENT */
+.card-content {
+  padding: 15px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #0a3d62;
+  color: white;
+  margin-top: 20px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Se torne um profissional financeiro</h1>
-  <p>Aprenda como o dinheiro funciona e como usá-lo de forma inteligente.</p>
+  <h1>Finanças Inteligentes</h1>
+  <p>Domine seu dinheiro e construa seu futuro</p>
 </header>
 
 <nav>
-  <button id="btnHome">Lobby Principal</button>
-  <button id="btnDicas">Dicas</button>
-  <button id="btnInvest">Investimentos</button>
-  <button id="btnCaminhos">Caminhos</button>
-  <button id="btnContato">Suporte</button>
+  <button onclick="go('index.html')">Home</button>
+  <button onclick="go('dicas.html')">Dicas</button>
+  <button onclick="go('investimentos.html')">Investimentos</button>
+  <button onclick="go('caminhos.html')">Caminhos</button>
+  <button onclick="go('contato.html')">Contato</button>
 </nav>
+
+<div class="hero"></div>
 
 <div class="container">
 
-  <div class="card">
-    <h2>📊 Controle Financeiro</h2>
-    <p>Anote seus ganhos e gastos para entender para onde seu dinheiro está indo.</p>
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <h2>💰 Reserva de Emergência</h2>
-    <p>Guarde de 3 a 6 meses do seu custo de vida para imprevistos.</p>
-  </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
+      <div class="card-content">
+        <h2>Controle Financeiro</h2>
+        <p>Entenda seus gastos e tome decisões inteligentes.</p>
+      </div>
+    </div>
 
-  <div class="card">
-    <h2>📈 Investimentos</h2>
-    <p>Comece com renda fixa e evolua para renda variável com conhecimento.</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e">
+      <div class="card-content">
+        <h2>Reserva de Emergência</h2>
+        <p>Segurança financeira para momentos inesperados.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3">
+      <div class="card-content">
+        <h2>Investimentos</h2>
+        <p>Faça seu dinheiro trabalhar para você.</p>
+      </div>
+    </div>
+
   </div>
 
 </div>
 
 <footer>
-  <p>© 2026 Finanças e Seus Desafios</p>
+  © 2026 Finanças Pro
 </footer>
 
 <script>
-  // Função de redirecionamento
-  function redirecionar(pagina) {
-    window.location.href = pagina;
-  }
-
-  // Eventos dos botões
-  document.getElementById("btnHome").onclick = () => redirecionar("index.html");
-  document.getElementById("btnDicas").onclick = () => redirecionar("dicas.html");
-  document.getElementById("btnInvest").onclick = () => redirecionar("investimentos.html");
-  document.getElementById("btnCaminhos").onclick = () => redirecionar("caminhos.html");
-  document.getElementById("btnContato").onclick = () => redirecionar("contato.html");
+function go(page){
+  window.location.href = page;
+}
 </script>
 
 </body>
