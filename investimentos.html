@@ -49,14 +49,20 @@ h2 { color: var(--primary); }
 <body>
 
 <nav>
-  <div>FinançasPro</div>
-  <div class="menu">
-    <button onclick="go('index.html')">Home</button>
-    <button onclick="go('dicas.html')">Dicas</button>
-    <button onclick="go('investimentos.html')">Investimentos</button>
-    <button onclick="go('caminhos.html')">Caminhos</button>
-    <button onclick="go('contato.html')">Contato</button>
-  </div>
+<div class="card" onclick="go('renda-fixa.html')">
+  <h2>Renda Fixa</h2>
+  <p>CDB, Tesouro Direto e LCIs — segurança e previsibilidade.</p>
+</div>
+
+<div class="card" onclick="go('renda-variavel.html')">
+  <h2>Renda Variável</h2>
+  <p>Ações e Fundos Imobiliários para crescimento no longo prazo.</p>
+</div>
+
+<div class="card" onclick="go('diversificacao.html')">
+  <h2>Diversificação</h2>
+  <p>Distribua seu capital para reduzir riscos.</p>
+</div>
 </nav>
 
 <div class="container">
