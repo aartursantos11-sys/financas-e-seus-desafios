@@ -2,34 +2,82 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Caminhos Financeiros</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caminhos</title>
+
 <style>
-body { font-family: Arial; margin: 0; background: #f4f4f4; }
-header, footer { background: #0a3d62; color: white; text-align: center; padding: 15px; }
-.container { padding: 20px; }
-.card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
+:root {
+  --bg:#0b0e11;
+  --card:#161a1e;
+  --primary:#f0b90b;
+  --text:#eaecef;
+}
+
+body { background:var(--bg); color:var(--text); margin:0; font-family:Arial; }
+
+nav {
+  display:flex; justify-content:space-between;
+  padding:20px; border-bottom:1px solid #222;
+}
+
+.menu button {
+  background:none; border:none; color:var(--text);
+  margin-left:15px; cursor:pointer;
+}
+
+.menu button:hover { color:var(--primary); }
+
+.container { padding:20px; max-width:1000px; margin:auto; }
+
+.step {
+  background:var(--card);
+  padding:20px;
+  margin-bottom:15px;
+  border-left:4px solid var(--primary);
+  border-radius:8px;
+}
 </style>
 </head>
+
 <body>
 
-<header>
-<h1>Caminhos a Seguir</h1>
-</header>
+<nav>
+  <div>FinançasPro</div>
+  <div class="menu">
+    <button onclick="go('index.html')">Home</button>
+    <button onclick="go('dicas.html')">Dicas</button>
+    <button onclick="go('investimentos.html')">Investimentos</button>
+    <button onclick="go('caminhos.html')">Caminhos</button>
+    <button onclick="go('contato.html')">Contato</button>
+  </div>
+</nav>
 
 <div class="container">
-<div class="card">Educação financeira contínua.</div>
-<div class="card">Criar múltiplas fontes de renda.</div>
-<div class="card">Planejamento de longo prazo.</div>
 
-<button onclick="voltar()">Voltar</button>
+  <div class="step">
+    <h2>1. Organização</h2>
+    <p>Controle total de entradas e saídas.</p>
+  </div>
+
+  <div class="step">
+    <h2>2. Reserva</h2>
+    <p>Construa segurança antes de investir.</p>
+  </div>
+
+  <div class="step">
+    <h2>3. Investir</h2>
+    <p>Comece simples e evolua com conhecimento.</p>
+  </div>
+
+  <div class="step">
+    <h2>4. Escalar</h2>
+    <p>Multiplique renda e diversifique ativos.</p>
+  </div>
+
 </div>
 
-<footer>© 2026</footer>
-
 <script>
-function voltar(){
-  window.location.href = "index.html";
-}
+function go(p){ window.location.href = p; }
 </script>
 
 </body>
