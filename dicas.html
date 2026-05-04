@@ -2,35 +2,75 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Dicas Financeiras</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dicas</title>
+
 <style>
-body { font-family: Arial; margin: 0; background: #f4f4f4; }
-header, footer { background: #0a3d62; color: white; text-align: center; padding: 15px; }
-.container { padding: 20px; }
-.card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
-button { margin-top: 10px; }
+:root {
+  --bg:#0b0e11;
+  --card:#161a1e;
+  --primary:#f0b90b;
+  --text:#eaecef;
+}
+
+body { background:var(--bg); color:var(--text); margin:0; font-family:Arial; }
+
+nav {
+  display:flex; justify-content:space-between;
+  padding:20px; border-bottom:1px solid #222;
+}
+
+.menu button {
+  background:none; border:none; color:var(--text);
+  margin-left:15px; cursor:pointer;
+}
+
+.menu button:hover { color:var(--primary); }
+
+.container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.tip {
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.tip:hover {
+  transform:scale(1.03);
+}
 </style>
 </head>
+
 <body>
 
-<header>
-<h1>Dicas Financeiras</h1>
-</header>
+<nav>
+  <div>FinançasPro</div>
+  <div class="menu">
+    <button onclick="go('index.html')">Home</button>
+    <button onclick="go('dicas.html')">Dicas</button>
+    <button onclick="go('investimentos.html')">Investimentos</button>
+    <button onclick="go('caminhos.html')">Caminhos</button>
+    <button onclick="go('contato.html')">Contato</button>
+  </div>
+</nav>
 
 <div class="container">
-<div class="card">Evite gastos impulsivos.</div>
-<div class="card">Use planilhas ou apps para controle.</div>
-<div class="card">Tenha metas financeiras claras.</div>
 
-<button onclick="voltar()">Voltar</button>
+  <div class="tip">Evite dívidas desnecessárias.</div>
+  <div class="tip">Invista com consistência.</div>
+  <div class="tip">Estude antes de aplicar dinheiro.</div>
+  <div class="tip">Tenha disciplina financeira.</div>
+
 </div>
 
-<footer>© 2026</footer>
-
 <script>
-function voltar(){
-  window.location.href = "index.html";
-}
+function go(p){ window.location.href = p; }
 </script>
 
 </body>
