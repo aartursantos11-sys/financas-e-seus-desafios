@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - FinançasPro</title>
+
+<style>
+:root {
+  --bg:#0b0e11;
+  --card:#161a1e;
+  --primary:#f0b90b;
+  --text:#eaecef;
+  --sub:#b7bdc6;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px;
+border-bottom:1px solid #222;
+}
+
+.logo{
+color:var(--primary);
+font-weight:bold;
+}
+
+.container{
+max-width:450px;
+margin:60px auto;
+background:var(--card);
+padding:30px;
+border-radius:12px;
+}
+
+h1{
+color:var(--primary);
+margin-bottom:20px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+background:#0f1317;
+border:1px solid #333;
+border-radius:8px;
+color:var(--text);
+}
+
+button{
+width:100%;
+padding:14px;
+background:var(--primary);
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.switch{
+margin-top:20px;
+text-align:center;
+color:var(--sub);
+cursor:pointer;
+}
+
+.hidden{
+display:none;
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">FinançasPro</div>
+</nav>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div id="loginBox">
+<h1>Entrar</h1>
+
+<input type="text" id="loginUser" placeholder="Usuário ou E-mail">
+<input type="password" id="loginPass" placeholder="Senha">
+
+<button onclick="login()">Entrar</button>
+
+<div class="switch" onclick="showRegister()">
+Não possui conta? Criar agora
+</div>
+</div>
+
+<!-- CADASTRO -->
+<div id="registerBox" class="hidden">
+<h1>Criar Conta</h1>
+
+<input type="email" id="regEmail" placeholder="E-mail">
+<input type="password" id="regPass" placeholder="Crie uma senha">
+<input type="date" id="regBirth">
+<input type="text" id="regName" placeholder="Como deseja ser chamado(a)?">
+
+<button onclick="register()">Cadastrar</button>
+
+<div class="switch" onclick="showLogin()">
+Já possui conta? Entrar
+</div>
+</div>
+
+</div>
+
+<script>
+
+function showRegister(){
+document.getElementById("loginBox").classList.add("hidden");
+document.getElementById("registerBox").classList.remove("hidden");
+}
+
+function showLogin(){
+document.getElementById("registerBox").classList.add("hidden");
+document.getElementById("loginBox").classList.remove("hidden");
+}
+
+function register(){
+const email = document.getElementById("regEmail").value;
+const pass = document.getElementById("regPass").value;
+const birth = document.getElementById("regBirth").value;
+const name = document.getElementById("regName").value;
+
+if(!email || !pass || !birth || !name){
+alert("Preencha todos os campos.");
+return;
+}
+
+const user = {
+email,
+pass,
+birth,
+name
+};
+
+localStorage.setItem("financasUser", JSON.stringify(user));
+
+alert("Conta criada com sucesso!");
+showLogin();
+}
+
+function login(){
+const userInput = document.getElementById("loginUser").value;
+const passInput = document.getElementById("loginPass").value;
+
+const user = JSON.parse(localStorage.getItem("financasUser"));
+
+if(!user){
+alert("Nenhuma conta cadastrada.");
+return;
+}
+
+if((user.email === userInput || user.name === userInput) && user.pass === passInput){
+localStorage.setItem("logged", "true");
+window.location.href = "index.html";
+}else{
+alert("Dados incorretos.");
+}
+}
+
+</script>
+
+</body>
+</html>
