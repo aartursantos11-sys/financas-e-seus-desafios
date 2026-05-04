@@ -2,34 +2,84 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Investimentos</title>
+
 <style>
-body { font-family: Arial; margin: 0; background: #f4f4f4; }
-header, footer { background: #0a3d62; color: white; text-align: center; padding: 15px; }
-.container { padding: 20px; }
-.card { background: white; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
+:root {
+  --bg: #0b0e11;
+  --card: #161a1e;
+  --primary: #f0b90b;
+  --text: #eaecef;
+  --sub: #b7bdc6;
+}
+
+body { background: var(--bg); color: var(--text); font-family: Arial; margin:0; }
+
+nav {
+  display:flex; justify-content:space-between;
+  padding:20px; border-bottom:1px solid #222;
+}
+
+.menu button {
+  background:none; border:none; color:var(--text);
+  margin-left:15px; cursor:pointer;
+}
+
+.menu button:hover { color:var(--primary); }
+
+.container { max-width:1000px; margin:auto; padding:20px; }
+
+.card {
+  background:var(--card);
+  padding:20px;
+  margin-bottom:15px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover {
+  box-shadow:0 0 15px rgba(240,185,11,0.2);
+}
+
+h2 { color: var(--primary); }
 </style>
 </head>
+
 <body>
 
-<header>
-<h1>Investimentos</h1>
-</header>
+<nav>
+  <div>FinançasPro</div>
+  <div class="menu">
+    <button onclick="go('index.html')">Home</button>
+    <button onclick="go('dicas.html')">Dicas</button>
+    <button onclick="go('investimentos.html')">Investimentos</button>
+    <button onclick="go('caminhos.html')">Caminhos</button>
+    <button onclick="go('contato.html')">Contato</button>
+  </div>
+</nav>
 
 <div class="container">
-<div class="card">Renda fixa: CDB, Tesouro Direto.</div>
-<div class="card">Renda variável: ações, fundos imobiliários.</div>
-<div class="card">Diversifique seus investimentos.</div>
 
-<button onclick="voltar()">Voltar</button>
+  <div class="card">
+    <h2>Renda Fixa</h2>
+    <p>CDB, Tesouro Direto e LCIs — segurança e previsibilidade.</p>
+  </div>
+
+  <div class="card">
+    <h2>Renda Variável</h2>
+    <p>Ações e Fundos Imobiliários para crescimento no longo prazo.</p>
+  </div>
+
+  <div class="card">
+    <h2>Diversificação</h2>
+    <p>Distribua seu capital para reduzir riscos.</p>
+  </div>
+
 </div>
 
-<footer>© 2026</footer>
-
 <script>
-function voltar(){
-  window.location.href = "index.html";
-}
+function go(p){ window.location.href = p; }
 </script>
 
 </body>
