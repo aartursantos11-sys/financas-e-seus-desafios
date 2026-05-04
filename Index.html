@@ -21,24 +21,16 @@
   font-family: "Segoe UI", Arial;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
+body { background: var(--bg); color: var(--text); }
 
-/* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background: #0b0e11;
   border-bottom: 1px solid #222;
 }
 
-.logo {
-  color: var(--primary);
-  font-weight: bold;
-}
+.logo { color: var(--primary); font-weight: bold; }
 
 .menu button {
   background: none;
@@ -46,25 +38,17 @@ nav {
   color: var(--text);
   margin-left: 15px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.menu button:hover {
-  color: var(--primary);
-}
+.menu button:hover { color: var(--primary); }
 
-/* HERO */
 .hero {
   padding: 60px 20px;
   text-align: center;
-  background: radial-gradient(circle at top, #1e2329, #0b0e11);
 }
 
-.hero h1 { font-size: 36px; }
 .hero span { color: var(--primary); }
-.hero p { margin-top: 10px; color: var(--sub); }
 
-/* DASHBOARD */
 .dashboard {
   display: flex;
   justify-content: center;
@@ -78,18 +62,8 @@ nav {
   padding: 20px;
   border-radius: 12px;
   width: 250px;
-  box-shadow: 0 0 15px rgba(240,185,11,0.05);
-  transition: 0.3s;
 }
 
-.box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(240,185,11,0.2);
-}
-
-.box h3 { color: var(--primary); }
-
-/* CARDS */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -106,70 +80,17 @@ nav {
   background: var(--card);
   border-radius: 12px;
   overflow: hidden;
-  transition: 0.3s;
 }
-
-.card:hover { transform: scale(1.03); }
 
 .card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
-  opacity: 0.85;
 }
 
 .card-content { padding: 15px; }
 .card h2 { color: var(--primary); }
 
-/* LOGIN MODAL */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-box {
-  background: var(--card);
-  width: 400px;
-  padding: 30px;
-  border-radius: 14px;
-}
-
-.modal-box h2 {
-  color: var(--primary);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.modal-box input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  background: #0b0e11;
-  border: 1px solid #333;
-  color: white;
-  border-radius: 8px;
-}
-
-.modal-box button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: var(--primary);
-  color: black;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
@@ -180,18 +101,6 @@ footer {
 
 <body>
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
-  <div class="modal-box">
-    <h2>Login</h2>
-
-    <input type="text" placeholder="Usuário ou E-mail">
-    <input type="password" placeholder="Senha">
-
-    <button onclick="login()">Entrar</button>
-  </div>
-</div>
-
 <nav>
   <div class="logo">FinançasPro</div>
 
@@ -200,7 +109,7 @@ footer {
     <button onclick="go('dicas.html')">Dicas</button>
     <button onclick="go('investimentos.html')">Investimentos</button>
     <button onclick="go('caminhos.html')">Caminhos</button>
-    <button onclick="openLogin()">Login</button>
+    <button onclick="go('login.html')">Login</button>
   </div>
 </nav>
 
@@ -210,74 +119,47 @@ footer {
 </section>
 
 <section class="dashboard">
-  <div class="box">
-    <h3>R$ 0,00</h3>
-    <p>Saldo atual</p>
-  </div>
-  <div class="box">
-    <h3>R$ 0,00</h3>
-    <p>Investimentos</p>
-  </div>
-  <div class="box">
-    <h3>0%</h3>
-    <p>Rentabilidade</p>
-  </div>
+  <div class="box"><h3>R$ 0,00</h3><p>Saldo</p></div>
+  <div class="box"><h3>R$ 0,00</h3><p>Investimentos</p></div>
+  <div class="box"><h3>0%</h3><p>Rentabilidade</p></div>
 </section>
 
 <div class="container">
   <div class="grid">
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
       <div class="card-content">
         <h2>Controle</h2>
-        <p>Gestão completa das suas finanças.</p>
+        <p>Gestão completa</p>
       </div>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e">
-      <div class="card-content">
-        <h2>Segurança</h2>
-        <p>Proteja seu patrimônio com estratégia.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3">
-      <div class="card-content">
-        <h2>Investimentos</h2>
-        <p>Crescimento consistente no longo prazo.</p>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<footer>
-  © 2026 FinançasPro — Plataforma Educacional
-</footer>
+<footer>© 2026 FinançasPro</footer>
 
 <script>
-let isLoggedIn = false;
+function isLogged(){
+  return localStorage.getItem("logged") === "true";
+}
 
-function go(page) {
-  if (page === 'dicas.html' || page === 'investimentos.html' || page === 'caminhos.html') {
-    if (!isLoggedIn) {
-      openLogin();
+function go(page){
+
+  const protectedPages = [
+    "dicas.html",
+    "investimentos.html",
+    "caminhos.html"
+  ];
+
+  if(protectedPages.includes(page)){
+    if(!isLogged()){
+      localStorage.setItem("redirectAfterLogin", page);
+      window.location.href = "login.html";
       return;
     }
   }
+
   window.location.href = page;
-}
-
-function openLogin() {
-  document.getElementById("loginModal").style.display = "flex";
-}
-
-function login() {
-  isLoggedIn = true;
-  document.getElementById("loginModal").style.display = "none";
 }
 </script>
 
