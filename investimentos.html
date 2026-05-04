@@ -2,90 +2,90 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Investimentos</title>
 
 <style>
-:root {
-  --bg: #0b0e11;
-  --card: #161a1e;
-  --primary: #f0b90b;
-  --text: #eaecef;
-  --sub: #b7bdc6;
-}
-
-body { background: var(--bg); color: var(--text); font-family: Arial; margin:0; }
+body { background:#0b0e11; color:white; font-family:Arial; margin:0; }
 
 nav {
-  display:flex; justify-content:space-between;
-  padding:20px; border-bottom:1px solid #222;
+display:flex;
+justify-content:space-between;
+padding:20px;
+border-bottom:1px solid #222;
 }
 
-.menu button {
-  background:none; border:none; color:var(--text);
-  margin-left:15px; cursor:pointer;
+.container {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
 }
-
-.menu button:hover { color:var(--primary); }
-
-.container { max-width:1000px; margin:auto; padding:20px; }
 
 .card {
-  background:var(--card);
-  padding:20px;
-  margin-bottom:15px;
-  border-radius:10px;
-  transition:0.3s;
+background:#161a1e;
+padding:20px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
 }
 
 .card:hover {
-  box-shadow:0 0 15px rgba(240,185,11,0.2);
+transform:scale(1.03);
+box-shadow:0 0 15px rgba(240,185,11,0.2);
 }
 
-h2 { color: var(--primary); }
+h2 { color:#f0b90b; }
 </style>
 </head>
 
 <body>
 
+<script>
+if(localStorage.getItem("logged")!=="true"){
+location.href="index.html";
+}
+</script>
+
 <nav>
-<div class="card" onclick="go('renda-fixa.html')">
-  <h2>Renda Fixa</h2>
-  <p>CDB, Tesouro Direto e LCIs — segurança e previsibilidade.</p>
-</div>
-
-<div class="card" onclick="go('renda-variavel.html')">
-  <h2>Renda Variável</h2>
-  <p>Ações e Fundos Imobiliários para crescimento no longo prazo.</p>
-</div>
-
-<div class="card" onclick="go('diversificacao.html')">
-  <h2>Diversificação</h2>
-  <p>Distribua seu capital para reduzir riscos.</p>
-</div>
+<div>Investimentos</div>
 </nav>
 
 <div class="container">
 
-  <div class="card">
-    <h2>Renda Fixa</h2>
-    <p>CDB, Tesouro Direto e LCIs — segurança e previsibilidade.</p>
-  </div>
+<div class="card" onclick="go('investimento1.html')">
+<h2>Renda Fixa</h2>
+<p>Segurança e previsibilidade</p>
+</div>
 
-  <div class="card">
-    <h2>Renda Variável</h2>
-    <p>Ações e Fundos Imobiliários para crescimento no longo prazo.</p>
-  </div>
+<div class="card" onclick="go('investimento2.html')">
+<h2>Ações</h2>
+<p>Participação em empresas</p>
+</div>
 
-  <div class="card">
-    <h2>Diversificação</h2>
-    <p>Distribua seu capital para reduzir riscos.</p>
-  </div>
+<div class="card" onclick="go('investimento3.html')">
+<h2>Fundos Imobiliários</h2>
+<p>Renda passiva mensal</p>
+</div>
+
+<div class="card" onclick="go('investimento4.html')">
+<h2>Criptomoedas</h2>
+<p>Mercado digital moderno</p>
+</div>
+
+<div class="card" onclick="go('investimento5.html')">
+<h2>Diversificação</h2>
+<p>Redução de riscos</p>
+</div>
+
+<div class="card" onclick="go('investimento6.html')">
+<h2>Investimento Internacional</h2>
+<p>Dólar e mercado global</p>
+</div>
 
 </div>
 
 <script>
-function go(p){ window.location.href = p; }
+function go(p){ location.href=p; }
 </script>
 
 </body>
