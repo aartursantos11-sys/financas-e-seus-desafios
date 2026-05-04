@@ -2,114 +2,178 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Finanças Pro</title>
 
 <style>
-:root {
-  --bg:#0b0e11;
-  --primary:#f0b90b;
-  --text:#eaecef;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-body { margin:0; background:var(--bg); color:var(--text); font-family:Arial; }
+body {
+  background: #f4f6f9;
+}
 
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #0a3d62, #1e5f8a);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 32px;
+}
+
+header p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  color: #1e5f8a;
+}
+
+/* HERO IMAGE */
 .hero {
-  height:100vh;
-  background:url('image_3e0b416.png') center/cover no-repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  width: 100%;
+  height: 250px;
+  background: url("https://images.unsplash.com/photo-1565514020179-026b92b2d16b") center/cover;
 }
 
-.overlay {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
+/* CONTAINER */
+.container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.content {
-  position:relative;
-  text-align:center;
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-button {
-  padding:12px 25px;
-  background:var(--primary);
-  border:none;
-  cursor:pointer;
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-/* LOGIN */
-.modal {
-  display:none;
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.box {
-  background:#161a1e;
-  padding:25px;
-  border-radius:10px;
-  width:300px;
+/* CARD IMAGE */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
 
-input {
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
+/* CARD CONTENT */
+.card-content {
+  padding: 15px;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #0a3d62;
+  color: white;
+  margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-<div class="overlay"></div>
+<header>
+  <h1>Finanças Inteligentes</h1>
+  <p>Domine seu dinheiro e construa seu futuro</p>
+</header>
 
-<div class="content">
-<h1>Aprenda a lidar com o seu dinheiro de maneira prática!</h1>
-<p>Inicie essa jornada.</p>
+<nav>
+  <button onclick="go('index.html')">Home</button>
+  <button onclick="go('dicas.html')">Dicas</button>
+  <button onclick="go('investimentos.html')">Investimentos</button>
+  <button onclick="go('caminhos.html')">Caminhos</button>
+  <button onclick="go('contato.html')">Contato</button>
+</nav>
 
-<button onclick="abrir()">Começar agora!</button>
+<div class="hero"></div>
+
+<div class="container">
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
+      <div class="card-content">
+        <h2>Controle Financeiro</h2>
+        <p>Entenda seus gastos e tome decisões inteligentes.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e">
+      <div class="card-content">
+        <h2>Reserva de Emergência</h2>
+        <p>Segurança financeira para momentos inesperados.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3">
+      <div class="card-content">
+        <h2>Investimentos</h2>
+        <p>Faça seu dinheiro trabalhar para você.</p>
+      </div>
+    </div>
+
+  </div>
+
 </div>
-</section>
 
-<div class="modal" id="modal">
-<div class="box">
-<h2>Login</h2>
-
-<input id="email" placeholder="Email">
-<input id="senha" type="password" placeholder="Senha">
-
-<button onclick="login()">Entrar</button>
-</div>
-</div>
+<footer>
+  © 2026 Finanças Pro
+</footer>
 
 <script>
-function abrir(){
-  document.getElementById("modal").style.display="flex";
-}
-
-function login(){
-  let email = document.getElementById("email").value;
-  let senha = document.getElementById("senha").value;
-
-  
-  if(email === "admin@email.com" && senha === "1234"){
-    localStorage.setItem("logged","true");
-    window.location.href="dashboard.html";
-  } else {
-    alert("Dados incorretos");
-  }
-}
-
-if(localStorage.getItem("logged") === "true"){
-  window.location.href="dashboard.html";
+function go(page){
+  window.location.href = page;
 }
 </script>
 
