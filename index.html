@@ -6,152 +6,198 @@
 <title>Finanças Pro</title>
 
 <style>
+:root {
+  --bg: #0b0e11;
+  --card: #161a1e;
+  --primary: #f0b90b;
+  --text: #eaecef;
+  --sub: #b7bdc6;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial;
 }
 
 body {
-  background: #f4f6f9;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #0a3d62, #1e5f8a);
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 32px;
-}
-
-header p {
-  margin-top: 10px;
-  opacity: 0.9;
-}
-
-/* NAV */
+/* NAVBAR */
 nav {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  background: #fff;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  justify-content: space-between;
+  padding: 20px;
+  background: #0b0e11;
+  border-bottom: 1px solid #222;
 }
 
-nav button {
+.logo {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.menu button {
   background: none;
   border: none;
-  font-weight: bold;
+  color: var(--text);
+  margin-left: 15px;
   cursor: pointer;
-  padding: 8px 12px;
   transition: 0.3s;
 }
 
-nav button:hover {
-  color: #1e5f8a;
+.menu button:hover {
+  color: var(--primary);
 }
 
-/* HERO IMAGE */
+/* HERO */
 .hero {
-  width: 100%;
-  height: 250px;
-  background: url("https://images.unsplash.com/photo-1565514020179-026b92b2d16b") center/cover;
+  padding: 60px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, #1e2329, #0b0e11);
 }
 
-/* CONTAINER */
-.container {
+.hero h1 {
+  font-size: 36px;
+}
+
+.hero span {
+  color: var(--primary);
+}
+
+.hero p {
+  margin-top: 10px;
+  color: var(--sub);
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.box {
+  background: var(--card);
   padding: 20px;
-  max-width: 1000px;
-  margin: auto;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 0 15px rgba(240,185,11,0.05);
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(240,185,11,0.2);
+}
+
+.box h3 {
+  color: var(--primary);
 }
 
 /* CARDS */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .card {
-  background: white;
+  background: var(--card);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
 }
 
-/* CARD IMAGE */
 .card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  opacity: 0.85;
 }
 
-/* CARD CONTENT */
 .card-content {
   padding: 15px;
 }
 
 .card h2 {
-  font-size: 18px;
-  margin-bottom: 8px;
+  color: var(--primary);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 15px;
-  background: #0a3d62;
-  color: white;
-  margin-top: 20px;
+  padding: 20px;
+  color: var(--sub);
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Finanças Inteligentes</h1>
-  <p>Domine seu dinheiro e construa seu futuro</p>
-</header>
-
 <nav>
-  <button onclick="go('index.html')">Home</button>
-  <button onclick="go('dicas.html')">Dicas</button>
-  <button onclick="go('investimentos.html')">Investimentos</button>
-  <button onclick="go('caminhos.html')">Caminhos</button>
-  <button onclick="go('contato.html')">Contato</button>
+  <div class="logo">FinançasPro</div>
+
+  <div class="menu">
+    <button onclick="go('index.html')">Home</button>
+    <button onclick="go('dicas.html')">Dicas</button>
+    <button onclick="go('investimentos.html')">Investimentos</button>
+    <button onclick="go('caminhos.html')">Caminhos</button>
+    <button onclick="go('contato.html')">Contato</button>
+  </div>
 </nav>
 
-<div class="hero"></div>
+<section class="hero">
+  <h1>Controle total do seu <span>dinheiro</span></h1>
+  <p>Plataforma moderna para evolução financeira</p>
+</section>
+
+<section class="dashboard">
+  <div class="box">
+    <h3>R$ 0,00</h3>
+    <p>Saldo atual</p>
+  </div>
+  <div class="box">
+    <h3>R$ 0,00</h3>
+    <p>Investimentos</p>
+  </div>
+  <div class="box">
+    <h3>0%</h3>
+    <p>Rentabilidade</p>
+  </div>
+</section>
 
 <div class="container">
-
   <div class="grid">
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f">
       <div class="card-content">
-        <h2>Controle Financeiro</h2>
-        <p>Entenda seus gastos e tome decisões inteligentes.</p>
+        <h2>Controle</h2>
+        <p>Gestão completa das suas finanças.</p>
       </div>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e">
       <div class="card-content">
-        <h2>Reserva de Emergência</h2>
-        <p>Segurança financeira para momentos inesperados.</p>
+        <h2>Segurança</h2>
+        <p>Proteja seu patrimônio com estratégia.</p>
       </div>
     </div>
 
@@ -159,16 +205,15 @@ footer {
       <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3">
       <div class="card-content">
         <h2>Investimentos</h2>
-        <p>Faça seu dinheiro trabalhar para você.</p>
+        <p>Crescimento consistente no longo prazo.</p>
       </div>
     </div>
 
   </div>
-
 </div>
 
 <footer>
-  © 2026 Finanças Pro
+  © 2026 FinançasPro — Plataforma Educacional
 </footer>
 
 <script>
