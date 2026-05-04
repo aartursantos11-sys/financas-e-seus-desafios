@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>finanças e seus desafios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanças e Seus Desafios</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -23,15 +25,23 @@
       text-align: center;
     }
 
-    nav a {
+    nav button {
+      background: none;
+      border: none;
       color: white;
       margin: 0 10px;
-      text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    nav button:hover {
+      text-decoration: underline;
     }
 
     .container {
       padding: 20px;
+      margin-bottom: 60px;
     }
 
     .card {
@@ -57,40 +67,54 @@
 <body>
 
 <header>
-  <h1>Se torne um profissional Financeiro.</h1>
-  <p>Comece a entender como funciona o dinheiro e como usar-lo de forma correta.</p>
+  <h1>Se torne um profissional financeiro</h1>
+  <p>Aprenda como o dinheiro funciona e como usá-lo de forma inteligente.</p>
 </header>
 
 <nav>
-  <a href="#">lobby principal</a>
-  <a href="#">Dicas</a>
-  <a href="#">Investimentos recomendados</a>
-  <a href="#">caminhos a seguir</a>
-  <a href="#">Contatos de suporte</a>
+  <button id="btnHome">Lobby Principal</button>
+  <button id="btnDicas">Dicas</button>
+  <button id="btnInvest">Investimentos</button>
+  <button id="btnCaminhos">Caminhos</button>
+  <button id="btnContato">Suporte</button>
 </nav>
 
 <div class="container">
 
   <div class="card">
     <h2>📊 Controle Financeiro</h2>
-    <p>Anote todos seus ganhos e gastos para entender para onde seu dinheiro está indo.</p>
+    <p>Anote seus ganhos e gastos para entender para onde seu dinheiro está indo.</p>
   </div>
 
   <div class="card">
     <h2>💰 Reserva de Emergência</h2>
-    <p>Guarde pelo menos 3 a 6 meses do seu custo de vida.</p>
+    <p>Guarde de 3 a 6 meses do seu custo de vida para imprevistos.</p>
   </div>
 
   <div class="card">
     <h2>📈 Investimentos</h2>
-    <p>Comece com renda fixa e depois evolua para renda variável.</p>
+    <p>Comece com renda fixa e evolua para renda variável com conhecimento.</p>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2026 Educação Financeira</p>
+  <p>© 2026 Finanças e Seus Desafios</p>
 </footer>
+
+<script>
+  // Função de redirecionamento
+  function redirecionar(pagina) {
+    window.location.href = pagina;
+  }
+
+  // Eventos dos botões
+  document.getElementById("btnHome").onclick = () => redirecionar("index.html");
+  document.getElementById("btnDicas").onclick = () => redirecionar("dicas.html");
+  document.getElementById("btnInvest").onclick = () => redirecionar("investimentos.html");
+  document.getElementById("btnCaminhos").onclick = () => redirecionar("caminhos.html");
+  document.getElementById("btnContato").onclick = () => redirecionar("contato.html");
+</script>
 
 </body>
 </html>
