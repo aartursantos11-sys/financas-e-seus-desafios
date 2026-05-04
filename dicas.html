@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dicas</title>
+<title>Dicas Financeiras</title>
 
 <style>
 :root {
@@ -13,67 +13,123 @@
   --text:#eaecef;
 }
 
-body { background:var(--bg); color:var(--text); margin:0; font-family:Arial; }
+body {
+  background:var(--bg);
+  color:var(--text);
+  margin:0;
+  font-family:Arial;
+}
 
+/* NAV */
 nav {
-  display:flex; justify-content:space-between;
-  padding:20px; border-bottom:1px solid #222;
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #222;
 }
 
 .menu button {
-  background:none; border:none; color:var(--text);
-  margin-left:15px; cursor:pointer;
+  background:none;
+  border:none;
+  color:var(--text);
+  margin-left:15px;
+  cursor:pointer;
 }
 
-.menu button:hover { color:var(--primary); }
+.menu button:hover {
+  color:var(--primary);
+}
 
+/* CONTAINER */
 .container {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
-  padding:20px;
+  padding:30px;
 }
 
+/* CARDS */
 .tip {
   background:var(--card);
   padding:20px;
   border-radius:10px;
+  cursor:pointer;
   transition:0.3s;
 }
 
 .tip:hover {
   transform:scale(1.03);
+  box-shadow:0 0 15px rgba(240,185,11,0.2);
+}
+
+.tip h3 {
+  color:var(--primary);
+  margin-bottom:10px;
 }
 </style>
 </head>
 
 <body>
 
+<script>
+if(localStorage.getItem("logged") !== "true"){
+  window.location.href = "index.html";
+}
+</script>
+
 <nav>
   <div>FinançasPro</div>
+
   <div class="menu">
-    <button onclick="go('index.html')">Home</button>
-    <button onclick="go('dicas.html')">Dicas</button>
+    <button onclick="go('dashboard.html')">Dashboard</button>
     <button onclick="go('investimentos.html')">Investimentos</button>
-    <button onclick="go('caminhos.html')">Caminhos</button>
-    <button onclick="go('contato.html')">Contato</button>
+    <button onclick="go('caminhos.html')">Planejamento</button>
   </div>
 </nav>
 
 <div class="container">
 
-<div class="tip" onclick="go('evitar-gastos.html')">Evite dívidas desnecessárias.</div>
+  <div class="tip" onclick="go('dica1.html')">
+    <h3>Evitar gastos desnecessários</h3>
+    <p>Aprenda a controlar impulsos e economizar mais.</p>
+  </div>
 
-<div class="tip" onclick="go('consistencia.html')">Invista com consistência.</div>
+  <div class="tip" onclick="go('dica2.html')">
+    <h3>Criar uma reserva de emergência</h3>
+    <p>Proteja-se contra imprevistos financeiros.</p>
+  </div>
 
-<div class="tip" onclick="go('estudo.html')">Estude antes de aplicar dinheiro.</div>
+  <div class="tip" onclick="go('dica3.html')">
+    <h3>Controlar suas despesas mensais</h3>
+    <p>Saiba exatamente para onde seu dinheiro vai.</p>
+  </div>
 
-<div class="tip" onclick="go('disciplina.html')">Tenha disciplina financeira.</div>
+  <div class="tip" onclick="go('dica4.html')">
+    <h3>Investir com consistência</h3>
+    <p>Pequenos aportes constantes fazem diferença.</p>
+  </div>
+
+  <div class="tip" onclick="go('dica5.html')">
+    <h3>Evitar dívidas de alto juros</h3>
+    <p>Fuja de armadilhas como crédito rotativo.</p>
+  </div>
+
+  <div class="tip" onclick="go('dica6.html')">
+    <h3>Diversificar fontes de renda</h3>
+    <p>Não dependa de apenas uma entrada financeira.</p>
+  </div>
+
+  <div class="tip" onclick="go('dica7.html')">
+    <h3>Planejar objetivos financeiros</h3>
+    <p>Defina metas claras para seu dinheiro.</p>
+  </div>
 
 </div>
 
 <script>
-function go(p){ window.location.href = p; }
+function go(p){
+  window.location.href = p;
+}
 </script>
 
 </body>
